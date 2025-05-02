@@ -1,3 +1,4 @@
+//this is the method for the odd and even number different approach as it takees half of the multiplication now
 #include <iostream>
 using namespace std;
 int raw(int m, int n){
