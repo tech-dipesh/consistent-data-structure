@@ -1,60 +1,73 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-
 using namespace std;
-
-bool areConsecutive(vector<int>& numbers, int index = 0) {
-    // Base case: if we've reached the end of the vector
-    if (index >= numbers.size() - 1) {
-        return true;
-    }
-    
-    // Check if current number and next number are consecutive
-    if (numbers[index + 1] != numbers[index] + 1) {
-        return false;
-    }
-    
-    // Recursive case: check the next pair
-    return areConsecutive(numbers, index + 1);
+template<class T>
+class Array
+{
+private:
+ T *A;
+ int size;
+ int length;
+public:
+ Array()
+ {
+ size=10;
+ A=new T[10];
+ length=0;
+ }
+ Array(int sz)
+ {
+ size=sz;
+ length=0;
+ A=new T[size];
+ }
+ ~Array()
+ {
+ delete []A;
+ }
+ void Display();
+ void Insert(int index,T x);
+ T Delete(int index);
+};
+template<class T>
+void Array<T>::Display()
+{
+ for(int i=0;i<length;i++)
+ cout<<A[i]<<" ";
+ cout<<endl;
 }
-
-void printVector(vector<int>& v) {
-    cout << "[";
-    for (size_t i = 0; i < v.size(); ++i) {
-        cout << v[i];
-        if (i != v.size() - 1) {
-            cout << ", ";
-        }
-    }
-    cout << "]";
+template<class T>
+void Array<T>::Insert(int index,T x)
+{
+ if(index>=0 && index<=length)
+ {
+ for(int i=length-1;i>=index;i--)
+ A[i+1]=A[i];
+ A[index]=x;
+ length++;
+ }
 }
+template<class T>
+T Array<T>::Delete(int index)
+{
+ T x=0;
+ if(index>=0 && index<length)
+ {
+ x=A[index];
+ for(int i=index;i<length-1;i++)
+ A[i]=A[i+1];
+ length--;
+ }
+ return x;
+}
+int main()
+{
+ Array<char> arr(10);
 
-int main() {
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    
-    vector<int> numbers(n);
-    cout << "Enter " << n << " numbers: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> numbers[i];
-    }
-    
-    // First, sort the numbers to check consecutiveness
-    sort(numbers.begin(), numbers.end());
-    
-    bool consecutive = areConsecutive(numbers);
-    
-    cout << "Sorted numbers: ";
-    printVector(numbers);
-    cout << endl;
-    
-    if (consecutive) {
-        cout << "These numbers are consecutive." << endl;
-    } else {
-        cout << "These numbers are not consecutive." << endl;
-    }
-    
-    return 0;
+ arr.Insert(0,'a');
+ arr.Insert(1,'c');
+ arr.Insert(2,'d');
+ arr.Display();
+ cout<<arr.Delete(0)<<endl;
+ arr.Display();
+ return 0;
 }
