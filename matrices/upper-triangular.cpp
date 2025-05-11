@@ -18,14 +18,14 @@ int upperTriangular(int *A, int n){
   return 0;
 }
 int main(){
-   cout<<"welcome to the upper triagular matrix."<<endl;
+   cout<<"welcome to the upper triagular matrix."<<endl<<"Please enter the total elements ";
    int n;
    cin>>n;
    cout<<"enter the inside elements";
   //  int *A, n, i, j, x;
   int size=(n*(n+1))/2;
   int *A=new int[size]; 
-  cout<<"you have to print"<<size;
+  cout<<endl<<"you have to print:"<<size<<", elements"<<endl;
   for(int i=0;i<size;i++){
     cin>>A[i];
   }
