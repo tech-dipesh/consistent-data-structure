@@ -3,7 +3,8 @@
 #include <iostream>
 using namespace std;
 int main(){
-    
+    // the band matrices is takng a only one side band from the diagonal element.
+    // We can see similar to the toeplity but let's see i will change in the coming month !00%.
 cout<<"band logic i could do t";
 return 0;
 }
