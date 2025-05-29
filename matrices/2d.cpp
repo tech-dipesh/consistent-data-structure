@@ -3,7 +3,9 @@ using namespace std;
 int output(int row, int col, int matrix){
   for(int i=0;i<row;i++){
     for(int j=0;j<row;j++){
-      
+      int raw;
+      cin>>raw[i][j];
+      if(raw[i][j]==raw[j][i]) int value=raw[i][j]
     }
   }
   return 0;
