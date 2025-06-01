@@ -26,3 +26,6 @@ for(int i=0;i<n;i++){
 }
 return 0;
 }
+
+// i still need to improve a sparse;
+// maybe from my next week my dsa marathon will start.
