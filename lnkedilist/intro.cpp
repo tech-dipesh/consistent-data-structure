@@ -11,7 +11,7 @@ int main() {
     // above value stored on the value and address beloe
     cout << myNode->data << endl;
     cout << myNode->next << endl;
-    
+    //is this the best way to do it, how does this work on the factual information.
     delete myNode; // Clean up
     return 0;
 }

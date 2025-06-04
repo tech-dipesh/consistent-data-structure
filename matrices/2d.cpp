@@ -5,7 +5,8 @@ int output(int row, int col, int matrix){
     for(int j=0;j<row;j++){
       int raw;
       cin>>raw[i][j];
-      if(raw[i][j]==raw[j][i]) int value=raw[i][j]
+      if(raw[i][j]==raw[j][i]) int value=raw[i][j];
+      //just checking a diagonal matrix which i will do later.
     }
   }
   return 0;
