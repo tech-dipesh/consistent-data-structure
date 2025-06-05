@@ -2,30 +2,45 @@
 //Worst days of my life i'm unable to code properly on my laptop due to laptop issue.
 #include <iostream>
 using namespace std;
-int main(){
-   cout<<"sparse matrix is combination of the two triangular matrix combination." 
-cout<<"wow what a combination matrix.";
-cout<<"it will have the most of teh elements as a 0";
-cout<<"we can find out if a matrix is sparse using the formula:";
-cout<<"If (Number of zero elements) > (Total elements) / 2, then it is a sparse matrix.";
-cout<<"during the sparase metrix we can just cheeck on the 2d form."
-cout<<"so we need to use the both  i and j with iniit like this:"
 
-int n, rows, colums;
+struct Element{
+   int i;
+   int j;
+   int x;
+};
 
-cin>>n;
-cin>>rows;
-cin>>colums;
-int matrix[n][n];
-for(int i=0;i<n;i++){
-   for(int j=0;j<n;j++){
-      matrix[i][j];
+struct Sparse{
+   int m,
+   int n;
+   int num;
+   struct Element *El;
+
+};
+
+void Create(struct sparse *s){
+   cout<<"Enter dimensions";
+   cin>>s->m>>s->n;
+   cout<<"Enter no. of non zero";
+   cin>>s->num;
+   s->El=new Element[s->num];
+   cout<<"Enter non zero elements";
+   for(int i=0;i<s->num;i++){
+      cin>>S->El[i].i<<El[i].j<<El[i].x;
    }
-   if(matrix[i][j]==matrix[j][i]) continue;
-   
 }
-return 0;
+void Display(struct Sparse s){
+   int i, j, k=0;
+   for(int i=0;i<s->m;i++){
+      for(int j=0;j<s->n;j++){
+         if(i==s.El[k].i && j==s.El[i].j) 
+         cout<<s.El[k++].x;
+      else 
+      cout<<endl;
+      }
+      cout<<endl;
+   }
 }
-
-// i still need to improve a sparse;
-// maybe from my next week my dsa marathon will start.
+int main(){
+   struct sparse S;
+   Create(&s);  
+}
