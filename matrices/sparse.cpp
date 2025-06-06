@@ -9,15 +9,15 @@ struct Element{
    int x;
 };
 
-struct Sparse{
-   int m,
+struct Sparse {
+   int m;
    int n;
    int num;
    struct Element *El;
 
 };
 
-void Create(struct sparse *s){
+void Create( Sparse *s){
    cout<<"Enter dimensions";
    cin>>s->m>>s->n;
    cout<<"Enter no. of non zero";
@@ -25,22 +25,24 @@ void Create(struct sparse *s){
    s->El=new Element[s->num];
    cout<<"Enter non zero elements";
    for(int i=0;i<s->num;i++){
-      cin>>S->El[i].i<<El[i].j<<El[i].x;
+      cin>>s->El[i].i>>s->El[i].j>>s->El[i].x;
    }
 }
-void Display(struct Sparse s){
+void Display( Sparse s){
    int i, j, k=0;
-   for(int i=0;i<s->m;i++){
-      for(int j=0;j<s->n;j++){
-         if(i==s.El[k].i && j==s.El[i].j) 
+   for(int i=0;i<s.m;i++){
+      for(int j=0;j<s.n;j++){
+         if(k<s.num &&i==s.El[k].i && j==s.El[k].j) 
          cout<<s.El[k++].x;
       else 
-      cout<<endl;
+         cout<<"0 ";   
       }
       cout<<endl;
    }
 }
 int main(){
-   struct sparse S;
-   Create(&s);  
+    Sparse S;
+   Create(&S);  
+   Display(S);
+   return 0;
 }
