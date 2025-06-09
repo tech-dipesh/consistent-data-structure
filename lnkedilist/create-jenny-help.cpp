@@ -6,7 +6,7 @@ struct  node{
   int data;
   node* next;
 };
-
+// 
 int main(){
 // node*head, *newnode;
 node *head=nullptr, *temp=nullptr;
