@@ -20,7 +20,8 @@ public:
         // }
         // return back;
     if(head==nullptr || head->next==nullptr)return head;
-    ListNode* nhead=reverseList(head->next);
+    // ListNode* nhead=reverseList(head->next);
+    ListNode*nhead=reverseList(head->next);
     head->next->next=head;
     head->next=nullptr;
     return nhead;
