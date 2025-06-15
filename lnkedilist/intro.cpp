@@ -1,7 +1,8 @@
 // #include <iostream>
 #include <stdlib.c++.h>
 using namespace std;
-
+#include <vector>
+#include <algorithm>
 struct Node {
     int data;
     Node* next;
