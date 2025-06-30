@@ -4,6 +4,7 @@ struct Linked{
   int num;
   Node* Linked name;
 }
+// class defination on the double linked list
 class Show{
   public:
   int DoubleLinkedList(int num){
