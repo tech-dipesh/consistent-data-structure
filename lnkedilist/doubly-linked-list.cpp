@@ -13,6 +13,8 @@ class Show{
   }
   int Insertion(Node* show){
     Node* temp=show;
+    Node* front=show->next;
+    Node* bacck=temp->back;
   }
 }
 int main(){
