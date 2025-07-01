@@ -11,6 +11,9 @@ class Show{
     int value;
     Node* show;
   }
+  int Insertion(Node* show){
+    Node* temp=show;
+  }
 }
 int main(){
   DoubleLinkedList(29, 20);    
