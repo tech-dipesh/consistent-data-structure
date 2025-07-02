@@ -1,16 +1,22 @@
-// #include <iostream>
-#include <stdlib.c++.h>
-// #include <vector>
-// #include <algorithm>
+// #include <stdlib.c++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cstdlib>
 using namespace std;
 struct Node {
     int data;
     Node* next;
+    Node* prev;
 };
 
 // class defination on the double linked list
 class Show{
+    private:
+    Node* head;
+    NOde* tail;
   public:
+  DoubleLinkedList(): head(nullptr), tail(nullptr){}
   int DoubleLinkedList(int num){
     int value;
     Node* show;
