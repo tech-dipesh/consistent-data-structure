@@ -18,6 +18,7 @@ public:
         //     back=curr;
         //     curr=front;
         // }
+        // pointing to the next node
         // return back;
     if(head==nullptr || head->next==nullptr)return head;
     // ListNode* nhead=reverseList(head->next);
