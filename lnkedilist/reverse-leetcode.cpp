@@ -23,6 +23,7 @@ public:
     if(head==nullptr || head->next==nullptr)return head;
     // ListNode* nhead=reverseList(head->next);
     ListNode*nhead=reverseList(head->next);
+    // pointing to a next next node
     head->next->next=head;
     head->next=nullptr;
     return nhead;
