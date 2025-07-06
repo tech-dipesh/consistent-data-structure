@@ -12,11 +12,11 @@ struct Node {
 
 // class defination on the double linked list
 class Show{
+  // can't acces a private key by other functions
     private:
     Node* head;
     NOde* tail;
-  public:
-  DoubleLinkedList(): head(nullptr), tail(nullptr){}
+
   int DoubleLinkedList(int num){
     int value;
     Node* show;
