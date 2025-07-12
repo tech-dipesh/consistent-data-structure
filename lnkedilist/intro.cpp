@@ -15,7 +15,7 @@ class Show{
   // can't acces a private key by other functions
     private:
     Node* head;
-    NOde* tail;
+    Node* tail;
 
   int DoubleLinkedList(int num){
     int value;
@@ -24,9 +24,9 @@ class Show{
   int Insertion(Node* show){
     Node* temp=show;
     Node* front=show->next;
-    Node* bacck=temp->back;
+    Node* back=temp->back;
   }
-}
+};
 int main() {
     Node* myNode = new Node{10, nullptr}; 
     // above value stored on the value and address beloe
