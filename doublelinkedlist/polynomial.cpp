@@ -9,6 +9,8 @@ struct Node
 };
 
 Node *poly=nullptr;
+
+// create a doubly linked list polynomial node with correct logic of the value
 void create(){
   Node *t, *last=nullptr;
   int num;
@@ -29,6 +31,7 @@ void create(){
   }
 }
 
+// non return with display value with cout.
 void Display(Node *p){
    while(p){
     cout<<"*"<<p->coeff<<"+"<<p->exp;
