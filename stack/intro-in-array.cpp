@@ -22,7 +22,8 @@ public:
       // void Create(stack *st){
       void stack::Create(stack *st){
         cout<<"Enter Size";
-        cin>>&st->size;
+        // cin>>&st->size;
+        cin>>st->size;
         st->top=-1;
         // st->s=new st->size;
         st->s=new int[st->size];
@@ -31,7 +32,7 @@ public:
             cout<<"Memory failed";
             exit(1);
           }
-            cout<<"Memory allocation successfully";
+            cout<<"Memory allocation successfully"<<endl;
       }
 
       void stack::Display(stack *st){
@@ -63,7 +64,7 @@ public:
       }
 
       int stack::Peek(stack *st, int index){
-        if(isEmpty(st))cout<<"stack is empty";
+        if(isEmpty(st))cout<<"stack is empty"<<endl;
         int x=-1;
         // if(st.top-index+1<0)
         if(st->top-index+1<0)
