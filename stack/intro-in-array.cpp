@@ -7,30 +7,32 @@ class stack{
     int top;
     int *s;
 public:
-    void create(stack *st);
+    void Create(stack *st);
     void Display(stack *st);
-    void push(stack *st);
+    void Push(stack *st);
     // Push()
-    int Pop(stack *st);
-  int peek(stack *st) ;
+    int Pop(stack *st, int x);
+  int Peek(stack *st) ;
   int isEmpty(stack *st);
-  int isfull(stack *st); 
+  int isFull(stack *st); 
   int stackTop(stack *st);
     ~stack() {delete [] s;}
   };
       
-      void create(stack *st){
+      void Create(stack *st){
         cout<<"Enter Size";
         cin>>&st->size;
         st->top=-1;
         // st->s=new st->size;
-        st->s=new [st->size];
+        st->s=new int[st->size];
 
       }
 
       void Display{stack *t}{
-        for(int i=top;i>=0;i--)
-            cout<<st.s[i];
+        // for(int i=top;i>=0;i--)
+        for(int i=st->top;i>=0;i--)
+            // cout<<st.s[i];
+            cout<<st->s[i];
               cout<<endl;
       }
       void Push(stack *st, int x){
@@ -43,10 +45,10 @@ public:
         }
       }
 
-      void pop(stack *st){
+      void Pop(stack *st){
         int x=-1;
         if(st->top==-1){
-          cout<<"Stack underflow"
+          cout<<"Stack underflow";
         }
         else{
           x=st->s[st->top--];
@@ -54,8 +56,8 @@ public:
         return x;
       }
 
-      int peek(stack st, int index){
-        intx=-1;
+      int Peek(stack *st, int index){
+        int x=-1;
         if(st.top-index+1<0)
           cout<<"invalid index"<<end;
 
@@ -81,15 +83,19 @@ public:
       }
       int main(){
     stack st;
-  creat(&st);
+  // creat(&st);
+  Create(&st);
 
-  push(&st, 10);
-  push(&st, 20);
-  push(&st, 30);
-  push(&st, 40);
+  // push(&st, 10);
+  Push(&st, 20);
+  Push(&st, 20);
+  Push(&st, 30);
+  Push(&st, 40);
   
-  cout<<endl<<pop(&st);
-  cout<<endl<<peep(st, 1);
+  // cout<<endl<<pop(&st);
+  cout<<endl<<Pop(&st);
+  // cout<<endl<<peep(st, 1);
+  cout<<endl<<Peek(st, 1);
 
   Display(st);
 return 0;
