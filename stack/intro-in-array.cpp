@@ -26,7 +26,6 @@ public:
         st->top=-1;
         // st->s=new st->size;
         st->s=new int[st->size];
-          cout<<"successfully allocated a memory";
 
           if(st->s==nullptr){
             cout<<"Memory failed";
@@ -64,6 +63,7 @@ public:
       }
 
       int stack::Peek(stack *st, int index){
+        if(isEmpty(st))cout<<"stack is empty";
         int x=-1;
         // if(st.top-index+1<0)
         if(st->top-index+1<0)
