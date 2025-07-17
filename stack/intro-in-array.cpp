@@ -7,6 +7,11 @@ class stack{
     int top;
     int *s;
 public:
+
+// I shouldhave the constructor:
+stack():size(0), top(-1), s(nullptr){}
+
+
     void Create(stack *st);
     void Display(stack *st);
     void Push(stack *st, int x);
@@ -32,7 +37,7 @@ public:
             cout<<"Memory failed";
             exit(1);
           }
-            cout<<"Memory allocation successfully"<<endl;
+           else cout<<"Memory allocation successfully"<<endl;
       }
 
       void stack::Display(stack *st){
