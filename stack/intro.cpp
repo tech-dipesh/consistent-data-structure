@@ -28,11 +28,61 @@ class Stack{
         if(st->top==st->size-1){
           cout<,"Stack Overflow";
         }
-        else
+        else{
+          st->top++;
+          st->S[st->to[]=x;]
+        }
+      }
+
+      void pop(Stack *st){
+        int x=-1;
+        if(st->top==-1){
+          coiut<<"Stack underflow"
+        }
+        else{
+          x=st->tS[st->top--];
+        }
+        return x;
+      }
+
+      int peek(Stack st, int index){
+        intx=-1;
+        if(st.top-index+<0)
+          cout<,"invalid index"<<end;
+
+          x=st.s[st.top-index+1];
+
+          return x;
+
+      }
+
+      int isEmpty(stack st){
+        if(st.top==-1)
+          return 1;
+          return 0;
+      }
+
+      int isFull(stack st){
+        return st.top==st.size-1;
+      }
+      int stackTop(stack st){
+        if(!isEmpty(st))
+          return st.s[st.top];
+          return -1;
       }
 };
 int main(){
-    
-cout<<
+    Stack st;
+  creat(&st);
+
+  push(&st, 10);
+  push(&st, 20);
+  push(&st, 30);
+  push(&st, 40);
+  
+  cout<<endl<<pop(&st);
+  cout<<endl<<peep(st, 1);
+
+  Display(st);
 return 0;
 }
