@@ -19,7 +19,8 @@ public:
     ~stack() {delete [] s;}
   };
       
-      void Create(stack *st){
+      // void Create(stack *st){
+      void stack::Create(stack *st){
         cout<<"Enter Size";
         cin>>&st->size;
         st->top=-1;
@@ -28,14 +29,14 @@ public:
           cout<<"successfully allocated a memory";
       }
 
-      void Display(stack *t){
+      void stack::Display(stack *t){
         // for(int i=top;i>=0;i--)
         for(int i=st->top;i>=0;i--)
             // cout<<st.s[i];
             cout<<st->s[i];
               cout<<endl;
       }
-      void Push(stack *st, int x){
+      void stack::Push(stack *st, int x){
         if(st->top==st->size-1){
           cout<<"stack Overflow";
         }
@@ -45,7 +46,7 @@ public:
         }
       }
 
-      int Pop(stack *st){
+      int stack::Pop(stack *st){
         int x=-1;
         if(st->top==-1){
           cout<<"Stack underflow";
@@ -56,7 +57,7 @@ public:
         return x;
       }
 
-      int Peek(stack *st, int index){
+      int stack::Peek(stack *st, int index){
         int x=-1;
         // if(st.top-index+1<0)
         if(st->top-index+1<0)
@@ -69,16 +70,16 @@ public:
 
       }
 
-      int isEmpty(stack *st){
+      int stack::isEmpty(stack *st){
         if(st.top==-1)
           return 1;
           return 0;
       }
 
-      int isFull(stack *st){
+      int stack::isFull(stack *st){
         return st.top==st.size-1;
       }
-      int stackTop(stack *st){
+      int stack::stackTop(stack *st){
         if(!isEmpty(st))
           return st.s[st.top];
           return -1;
