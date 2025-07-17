@@ -12,7 +12,7 @@ public:
     void Push(stack *st, int x);
     // Push()
     int Pop(stack *st);
-  int Peek(stack *st) ;
+  int Peek(stack *st, int index) ;
   int isEmpty(stack *st);
   int isFull(stack *st); 
   int stackTop(stack *st);
@@ -27,9 +27,15 @@ public:
         // st->s=new st->size;
         st->s=new int[st->size];
           cout<<"successfully allocated a memory";
+
+          if(st->s==nullptr){
+            cout<<"Memory failed";
+            exit(1);
+          }
+            cout<<"Memory allocation successfully";
       }
 
-      void stack::Display(stack *t){
+      void stack::Display(stack *st){
         // for(int i=top;i>=0;i--)
         for(int i=st->top;i>=0;i--)
             // cout<<st.s[i];
@@ -100,10 +106,13 @@ public:
   st.Push(&st, 40);
   
   // cout<<endl<<pop(&st);
-  cout<<endl<<Pop(&st);
+  cout<<endl;
+  cout<<st.Pop(&st);
   // cout<<endl<<peep(st, 1);
-  cout<<endl<<Peek(&st, 1);
+  cout<<endl;
+  cout<<st.Peek(&st, 1);
 
-  Display(&st);
+  // Display(&st);
+  st.Display(&st);
 return 0;
 }
