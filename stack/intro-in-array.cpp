@@ -11,7 +11,7 @@ public:
     void Display(stack *st);
     void Push(stack *st, int x);
     // Push()
-    int Pop(stack *st, int x);
+    int Pop(stack *st);
   int Peek(stack *st) ;
   int isEmpty(stack *st);
   int isFull(stack *st); 
@@ -71,29 +71,33 @@ public:
       }
 
       int stack::isEmpty(stack *st){
-        if(st.top==-1)
-          return 1;
-          return 0;
+        // if(st.top==-1)
+        return st->top==-1;
+          // return 0;
       }
 
       int stack::isFull(stack *st){
-        return st.top==st.size-1;
+        // return st.top==st.size-1;
+        return st->top==st->size-1;
       }
       int stack::stackTop(stack *st){
         if(!isEmpty(st))
-          return st.s[st.top];
+          // return st.s[st.top];
+          return st->s[st->top];
           return -1;
       }
       int main(){
     stack st;
   // creat(&st);
-  Create(&st);
+  // Create(&st);
+  st.Create(&st);
 
   // push(&st, 10);
-  Push(&st, 20);
-  Push(&st, 20);
-  Push(&st, 30);
-  Push(&st, 40);
+  // Push(&st, 20);
+  st.Push(&st, 20);
+  st.Push(&st, 20);
+  st.Push(&st, 30);
+  st.Push(&st, 40);
   
   // cout<<endl<<pop(&st);
   cout<<endl<<Pop(&st);
