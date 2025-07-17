@@ -7,24 +7,27 @@ class Stack{
     int top;
     int *s;
 
+    void create(Stack *st);
+    void Display();
+    Push()
     public:
-      void create(Stack *st);
 
+      
       void create(Stack *st){
         cout<<"Enter Size";
         cin>>&st->size;
         st->top=-1;
-        st->s=new st->size;
+        // st->s=new st->size;
+        st->s=new [st->size];
 
       }
 
-      void Display{}{
-        for(int i=top;i>=0;i--){
-
-
-        }
+      void Display{Stack *t}{
+        for(int i=top;i>=0;i--)
+            cout<<st.s[i];
+              cout<<endl;
       }
-      void push(Stack *st, int x){
+      void Push(Stack *st, int x){
         if(st->top==st->size-1){
           cout<,"Stack Overflow";
         }
