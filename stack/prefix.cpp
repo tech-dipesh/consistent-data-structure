@@ -1,8 +1,8 @@
 #include <iostream>
-#include <stack>
+#include <pretoPost>
 using namespace std;
 
-class stack{
+class pretoPost{
   private:
     int size;
     int top;
@@ -11,24 +11,28 @@ public:
 
 // Node *top=nullptr;
 // I shouldhave the constructor:
-stack():size(0), top(-1), s(nullptr){}
-
-
+pretoPost():size(0), top(-1), s(nullptr){}
   void isBalanced(char *exp);
-    void Create(stack *st);
-    void Display(stack *st);
-    void Push(stack *st, int x);
+    void Create(pretoPost *st);
+    void Display(pretoPost *st);
+    void Push(pretoPost *st, int x);
     // Push()
-    char Pop(stack *st);
-  int Peek(stack *st, int index) ;
-  int isEmpty(stack *st);
-  int isFull(stack *st); 
-  int stackTop(stack *st);
-    ~stack() {delete [] s;}
+    char Pop(pretoPost *st);
+  int Peek(pretoPost *st, int index) ;
+  int isEmpty(pretoPost *st);
+  int isFull(pretoPost *st); 
+  int pretoPostTop(pretoPost *st);
+
+  // pre to post function:
+  int pre(char x);
+  int isOperand(char x);
+  char *intPost(char *infix){
+
+    ~pretoPost() {delete [] s;}
   };
       
-      // void Create(stack *st){
-      void stack::Create(stack *st){
+      // void Create(pretoPost *st){
+      void pretoPost::Create(pretoPost *st){
         cout<<"Enter Size";
         // cin>>&st->size;
         cin>>st->size;
@@ -43,16 +47,16 @@ stack():size(0), top(-1), s(nullptr){}
            else cout<<"Memory allocation successfully"<<endl;
       }
 
-      void stack::Display(stack *st){
+      void pretoPost::Display(pretoPost *st){
         // for(int i=top;i>=0;i--)
         for(int i=st->top;i>=0;i--)
             // cout<<st.s[i];
             cout<<st->s[i];
               cout<<endl;
       }
-      void stack::Push(stack *st, int x){
+      void pretoPost::Push(pretoPost *st, int x){
         if(st->top==st->size-1){
-          cout<<"stack Overflow";
+          cout<<"pretoPost Overflow";
         }
         else{
           st->top++;
@@ -60,10 +64,10 @@ stack():size(0), top(-1), s(nullptr){}
         }
       }
 
-      char stack::Pop(stack *st){
+      char pretoPost::Pop(pretoPost *st){
         int x=-1;
         if(st->top==-1){
-          cout<<"Stack underflow";
+          cout<<"pretoPost underflow";
         }
         else{
           x=st->s[st->top--];
@@ -71,8 +75,8 @@ stack():size(0), top(-1), s(nullptr){}
         return x;
       }
 
-      int stack::Peek(stack *st, int index){
-        if(isEmpty(st))cout<<"stack is empty"<<endl;
+      int pretoPost::Peek(pretoPost *st, int index){
+        if(isEmpty(st))cout<<"pretoPost is empty"<<endl;
         int x=-1;
         // if(st.top-index+1<0)
         if(st->top-index+1<0)
@@ -85,24 +89,26 @@ stack():size(0), top(-1), s(nullptr){}
 
       }
 
-      int stack::isEmpty(stack *st){
+      int pretoPost::isEmpty(pretoPost *st){
         // if(st.top==-1)
         return st->top==-1;
           // return 0;
       }
 
-      int stack::isFull(stack *st){
+      int pretoPost::isFull(pretoPost *st){
         // return st.top==st.size-1;
         return st->top==st->size-1;
       }
-      int stack::stackTop(stack *st){
+
+
+      int pretoPost::pretoPostTop(pretoPost *st){
         if(!isEmpty(st))
           // return st.s[st.top];
           return st->s[st->top];
           return -1;
       }
 
-      int stack::isBalanced(char *exp){
+      int pretoPost::isBalanced(char *exp){
         for(int i=0;exp[i]!='\0';i++){
           if(exp[i]=='()')
             Push(exp[i]);
@@ -114,70 +120,60 @@ stack():size(0), top(-1), s(nullptr){}
         }
       }
 
- int  pre(char x){
+ int  pretoPost::pre(char x){
   if(x=='+' || x=='-')
        return 1;
   else if(x=='*'|| x=='/')
           return 2;
           return 0
  }
-  int isOeparnd(char x){
-          if(x=='+' ||| x=='-' || x=='* || x=='/'}
+  int pretoPost::isOperand(char x){
+          if(x=='+' ||| x=='-' || x=='*' || x=='/')
            return 0;
            else return 1;
-          
+  }
 
-           char *intPost(char *infix){
-            int i=0, j=0;
-             
-            char *postfiix;
-            int size=infix.size();
-            postfix=new size+1;
+char *intPost(char *infix){
+  int i=0, j=0;
 
-            while(infix[i]!='\0'){
-              if(isOeparnd(infix[i]))
-              postfix[j++]=infix[i++];
-              else {
-                if(pre(infix[i])>pre(top->data))
-                  push(infix[i++]);
-                  else{
-                    postfix[j++]=pop();
-                  }
-              }
-            }
-            while(top!=nullptr){
-              postfix[j++]=pop; 
-            }
-            postfix[j]='\0';
-            return postfix
-           }
+  char *postfiix;
+  int size=infix.size();
+  postfix=new size+2;
+
+    while(infix[i]!='\0'){
+    if(isOeparnd(infix[i]))
+      postfix[j++]=infix[i++];
+    else {
+       if(pre(infix[i])>pre(top->data))
+           push(infix[i++]);
+         else
+      postfix[j++]=pop();
+        }
+    }
+
+  while(top!=nullptr)
+  postfix[j++]=pop; 
+  postfix[j]='\0';
+  return postfix;
+}
+
  int main(){
-  stack st;
-  // create an object instance
-
+   // create an object instance
+  pretoPost st;
   char *infix="a+b*c";
   push('#')
   char *postfix=intopost(infix);
-  
   cout<<postfix;;
 
-  char 
-  bodmosInfix stack;
-  stack.Push(10);
-  stack.Push(20);
-  stack.Push(30);
-
-  stack.Display();
-  cout<<stack.Pop()<<endl;
 return 0;
 }
 
-char *toPost(char *infix){
-  char *postfix;
-  int size=infix.size();
-  postfix=new size+1
-  while(infix!='\0'){
-    if
-  }
-}
+// char *toPost(char *infix){
+//   char *postfix;
+//   int size=infix.size();
+//   postfix=new size+1
+//   while(infix!='\0'){
+//     if
+//   }
+// }
 
