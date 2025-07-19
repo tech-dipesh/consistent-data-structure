@@ -1,65 +1,128 @@
-
 #include <iostream>
+#include <stack>
 using namespace std;
-struct Node{
-  int data;
-  Node *next;
-};
 
-Node *top=nullptr;
+class stack{
+  private:
+    int size;
+    int top;
+    char *s;
+public:
 
-class LinkedList{
-      public:
-        void Push(int x);
-        int Pop();
-        void Display();
+// Node *top=nullptr;
+// I shouldhave the constructor:
+stack():size(0), top(-1), s(nullptr){}
+
+
+  void isBalanced(char *exp);
+    void Create(stack *st);
+    void Display(stack *st);
+    void Push(stack *st, int x);
+    // Push()
+    char Pop(stack *st);
+  int Peek(stack *st, int index) ;
+  int isEmpty(stack *st);
+  int isFull(stack *st); 
+  int stackTop(stack *st);
+    ~stack() {delete [] s;}
   };
-    
- void LinkedList::Push(int x){
-  Node *t=new Node();
-  if(t==nullptr)
-      cout<<"stack is full"<<endl;
-     else{
-       t->data=x;
-      t->next=top;
-      top=t;
-     }
- }
+      
+      // void Create(stack *st){
+      void stack::Create(stack *st){
+        cout<<"Enter Size";
+        // cin>>&st->size;
+        cin>>st->size;
+        st->top=-1;
+        // st->s=new st->size;
+        st->s=new int[st->size];
 
-
- int LinkedList::Pop(){
-  Node *t;
-    int x=-1;
-  if(top==nullptr)
-      cout<<"STack is empty";
-      else{
-        t=top;
-        top=top->next;
-        x=t->data;
-        delete t;
+          if(st->s==nullptr){
+            cout<<"Memory failed";
+            exit(1);
+          }
+           else cout<<"Memory allocation successfully"<<endl;
       }
-      return x;
- }
- void LinkedList::Display(){
-  Node *p;
-  p=top;
-  while(p){
-    cout<<p->data<<"-";
-    p=p->next;
-  }
-    cout<<endl;
- }
- 
 
- int pre(char x){
+      void stack::Display(stack *st){
+        // for(int i=top;i>=0;i--)
+        for(int i=st->top;i>=0;i--)
+            // cout<<st.s[i];
+            cout<<st->s[i];
+              cout<<endl;
+      }
+      void stack::Push(stack *st, int x){
+        if(st->top==st->size-1){
+          cout<<"stack Overflow";
+        }
+        else{
+          st->top++;
+          st->s[st->top]=x;
+        }
+      }
+
+      char stack::Pop(stack *st){
+        int x=-1;
+        if(st->top==-1){
+          cout<<"Stack underflow";
+        }
+        else{
+          x=st->s[st->top--];
+        }
+        return x;
+      }
+
+      int stack::Peek(stack *st, int index){
+        if(isEmpty(st))cout<<"stack is empty"<<endl;
+        int x=-1;
+        // if(st.top-index+1<0)
+        if(st->top-index+1<0)
+          cout<<"invalid index"<<endl;
+
+          // x=st.s[st.top-index+1];
+          x=st->s[st->top-index+1];
+
+          return x;
+
+      }
+
+      int stack::isEmpty(stack *st){
+        // if(st.top==-1)
+        return st->top==-1;
+          // return 0;
+      }
+
+      int stack::isFull(stack *st){
+        // return st.top==st.size-1;
+        return st->top==st->size-1;
+      }
+      int stack::stackTop(stack *st){
+        if(!isEmpty(st))
+          // return st.s[st.top];
+          return st->s[st->top];
+          return -1;
+      }
+
+      int stack::isBalanced(char *exp){
+        for(int i=0;exp[i]!='\0';i++){
+          if(exp[i]=='()')
+            Push(exp[i]);
+            else if(exp[i]==')'){
+              if(top==nullptr) return 0;
+              Pop();
+            }
+            return top==nullptr?1:0;
+        }
+      }
+
+ int  pre(char x){
   if(x=='+' || x=='-')
        return 1;
-       else if(x=='*'|| x=='\')
+  else if(x=='*'|| x=='/')
           return 2;
           return 0
  }
-          int isOeparnd(char x){
-          if(x=='+) ||| x=='-' || x=='* || x=='\}
+  int isOeparnd(char x){
+          if(x=='+' ||| x=='-' || x=='* || x=='/'}
            return 0;
            else return 1;
           
@@ -89,6 +152,7 @@ class LinkedList{
             return postfix
            }
  int main(){
+  stack st;
   // create an object instance
 
   char *infix="a+b*c";
@@ -98,7 +162,7 @@ class LinkedList{
   cout<<postfix;;
 
   char 
-  LinkedList stack;
+  bodmosInfix stack;
   stack.Push(10);
   stack.Push(20);
   stack.Push(30);
@@ -117,6 +181,3 @@ char *toPost(char *infix){
   }
 }
 
-int main(){
-
-}
