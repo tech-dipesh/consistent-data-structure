@@ -9,28 +9,34 @@ class Queues{
     int rear;
     int *Q;
     public:
-    // Constructor value:
-    Queues(int sz){(sz), Q(new int[q=>size]), front(-1), rear(-1);}
+    // Constxructor value:
+    // Queues(int sz){(sz), Q(new int[q=>size]), front(-1), rear(-1);}
+    Queues(int sz): size(sz), front(-1), rear(-1){
+      Q=new int[size];
+    }
     // Destructor value:
-    ~Queues(delete [] Q);
-      void Enqueue(int x);
-      int Dequeue(int x);
-      int isFull (int rear, int size);
-      int isEmpty(int front, int rear);
+    // ~Queues(delete [] Q);
+    ~Queues(){delete [] Q;}
 
-};
-
-void Queues::Enqueue(Queues *Q,  x){
-  if(Q->rear==q->size-1)
+    // All element valus.
+   void Enqueue(Queues *Q, int x){
+  // if(Q->rear==q->size-1)
+  if(isFull()){
     cout<<"Queues is full";
+    return;
+  }
     else{
       Q->rear++;
-      Q->q[q->rear]=x;
-    }
+      // Q->q[q->rear]=x;
+      Q[rear]=x;
 }
-int Queues::Dequeue(Queues *q){
+
+// void Dequeue(Queues *q){
+void Dequeue(){
+  
   int x=-1;
-  if(q->front==q->rear)
+  // if(q->front==q->rear)
+  if(isEmpty())
     cout<<"Queue is Empty";
     else{
       q->front++;
@@ -39,13 +45,29 @@ int Queues::Dequeue(Queues *q){
     return x;
 }
 
-void Queues::isFull(int rear, int size){
-    if(rear==size-1) cout<<"Queue is Full";
+int isFull(int rear, int size){
+    // if(rear==size-1) cout<<"Queue is Full";
+    return rear==size-1;
 }
 
-void Queues::isEmpty(int front, int rear){
-    if(front==rear) cout<<"Queue is empty";
+int isEmpty(int front, int rear){
+    // if(front==rear) cout<<"Queue is empty";
+    return front==rear;
 }
+
+// void Display(Queues *q, int size){
+void Display()const{
+  if(isEmpty()){
+    cout<<"Queues is empty";
+    return;
+  }
+  for(int i=0;i<size;i++)
+    cout<<Q[i]<<" ";
+    cout<<endl;
+}
+  
+};
+
 
 int main(){
   Queues q;
@@ -53,19 +75,16 @@ int main(){
   cout<<"Enter Size";
   cin>>q->size;
 
+  // Qith specified size;
+  Queues q(size);
+  q.Enqueue(10);
+  q.Enqueue(25);
+  q.Enqueue(30);
+  q.Enqueue(35);
+
+  q.Display();
+ cout<<"Dequeue value is:"<<q.Dequeues<<endl;
   
-  q.Dequeue(10);
-  q.Dequeue(25);
-  q.Dequeue(30);
-  q.Dequeue(35);
-
-  q.Enqueue();
-  q.Enqueue();
-  q.Enqueue();
-
-  
-  q.isEmpty();
-
-  q.isFull();
+ q.Display();
   return 0;
 }
