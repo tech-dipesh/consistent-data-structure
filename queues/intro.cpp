@@ -4,14 +4,19 @@ using namespace std;
 
 class Queues{
   private:
+  // for the data member
     int size;
     int front;
     int rear;
     int *Q;
     public:
-    // Constxructor value:
+    // Constructor value:
     // Queues(int sz){(sz), Q(new int[q=>size]), front(-1), rear(-1);}
-    Queues(int sz): size(sz), front(-1), rear(-1){
+    // Queues(int sz): size(sz), front(-1), rear(-1){
+      // Q=new int[size];
+    Queues(){
+      front=rear=-1;
+      size=10;
       Q=new int[size];
     }
     // Destructor value:
@@ -26,12 +31,11 @@ class Queues{
     cout<<"Queues is full";
     return;
   }
-  // the front should move to one step
-  if(front==-1)front=0;
       // Q->rear++;
       // rear++;
       // Q->q[q->rear]=x;
-      Q[rear++]=x;
+      rear++;
+      Q[rear]=x;
    }
 // void Dequeue(Queues *q){
 int Dequeue(){
@@ -41,15 +45,15 @@ int Dequeue(){
   if(isEmpty())
     cout<<"Queue is Empty";
     // add both value.
-    int val=Q[front];
-    if(front==rear) front=rear=-1;
-    else
+    else{
       // q->front++;
+      x=Q[front+1];
       front++;
+    }
       // x=q->Q[q->front];
         // x=Q[front];
     
-    return val;
+    return x;
 }
 
 int isFull(){
@@ -57,7 +61,7 @@ int isFull(){
     return rear==size-1;
 }
 
-int isEmpty(){
+int isEmpty()const{
     // if(front==rear) cout<<"Queue is empty";
     return front==rear;
 }
