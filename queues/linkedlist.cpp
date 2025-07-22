@@ -9,15 +9,26 @@ class LinkedList{
   Node *next;
   };
   Node *front=nullptr, *rear=nullptr;
+  public:
+  // Destructor value:
+  ~LinkedList(){
+    while(front){
+      // front=front->next;
+      Node *temp=front;
+      front=front->next;
+      delete front;
+    }
+    // The last value shoudl point on last node.
+    rear=nullptr;
+  }
 
   void Enqueue(int x){
-    Node *t;
-    t=new Node();
-    if(t==nullptr) cout<<"Queu is full";
+    Node *t=new Node();
+    if(t==nullptr) cout<<"Queue is full";
     else{
       t->data=x;
       t->next=nullptr;
-      // this is the first node if:
+      // this is the first node if value:
       if(front==nullptr)
         front=rear=t;
         else{
@@ -26,38 +37,38 @@ class LinkedList{
         }
     }
   }
-  int Dequeu(){
+  int Dequeue(){
     int x=-1;
     Node *t;
-    if(front==null)<cout<<Queu is empty<<endl;
-
+    if(front==nullptr)cout<<"Queue is empty"<<endl;
     else{
       x=front->data;
-      t=front_insert_iteratorfrotn=front->next;
-      delte t;
+      t=front;
+      front=front->next;
+      delete t;
     }
     return x;
   }
-  void DsiaplY(){
-    Node *p;
-    wihle(p{
-      cout<<p>data;
+  void Display(){
+    // Node *p;
+    Node *p=front;
+    while(p){
+      cout<<p->data<<"->";
       p=p->next;
-  
-      cout<<endl;
-    })
+    }
+    cout<<endl;
   }
 };
 
 int main(){
    LinkedList l;
-   l.enquue(10);
-   l.enquue(70);
-   l.enquue(50);
-   l.enquue(20);
+   l.Enqueue(10);
+   l.Enqueue(70);
+   l.Enqueue(50);
+   l.Enqueue(20);
 
-   l.Display()
+   l.Display();
 
-   cout<<l.dequeue();
+   cout<<l.Dequeue();
   return 0;
 }
