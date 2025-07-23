@@ -26,11 +26,20 @@ class DEQueue{
   }
 
   void frontEnqueue(int x){
+    if(isEmpty()) return;
+    else{
+
+    }
+  }
+  int frontDequeue(){
+
+  }
+  void rearEnqueue(int x){
+
+  }
+  int rearDequeue(){
     
   }
-  int frontDequeue(){}
-  void rearEnqueue(int x){}
-  int rearDequeue(){}
   void Display(){
 
   }
