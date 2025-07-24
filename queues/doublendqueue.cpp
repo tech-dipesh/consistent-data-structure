@@ -26,22 +26,49 @@ class DEQueue{
   }
 
   void frontEnqueue(int x){
-    if(isEmpty()) return;
+    // if(isEmpty()) return;
+    if(front==-1) {
+      cout<<"Queue is Full";
+      return;
     else{
-      
+      Q[front]=x;
+      front--;
     }
   }
   int frontDequeue(){
-
+    int x=-1;
+    if(isEmpty())
+      cout<<"Dequeus is is underflow, no value";
+      else{
+        x=Q[front];
+        front++;
+      }
   }
   void rearEnqueue(int x){
-
+    if(isFull())cout<<"Dequeu is overflow"<<endl;
+    else{
+      rear++;
+      Q[rear]=x;
+    }
   }
   int rearDequeue(){
-    
+    int x=-1;
+    if(rear==-1)
+      cout<<"DEqueue underflow"<<endl;
+      else{
+        x=Q[rear];
+        rear--;
+      }
+      return x;
   }
   void Display(){
-
+    for(int i=front+1;i<=rear;i++){
+      cout<<Q[i]<<flush;
+      if(i<rear){
+        cout<<" <- "<<flush;
+      }
+    }
+    cout<<endl;
   }
 };
 
