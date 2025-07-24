@@ -9,20 +9,25 @@ class DEQueue{
   int rear;
   int *Q;
   public:
-  DEQueue():front(0), rear(0), {
+  // DEQueue():front(0), rear(0) {
+  DEQueue(int size=10):front(0), rear(0) {
     new int[size];
   }
-  ~DEQueue(){delete [] *Q};
+  // ~DEQueue(){delete [] *Q};
+  ~DEQueue(){delete [] Q;};
   // Checking is queue is full or empty:
-  void isFull(int rear){
-    if(rear==size-1)cout<<"Queue is Full";
-    return;
+  bool isFull(){
+    // if(rear==size-1)cout<<"Queue is Full";
+    // return;
+    return rear==size-1;
   }
-  void isEmpty(int front, int rear){
-    if(front==rear){
-        cout<<"Queue is Empty";
-        return;
-    }
+  // bool isEmpty(int front, int rear){
+  bool isEmpty(){
+    // if(front==rear){
+    //     cout<<"Queue is Empty";
+    //     return;
+    // }
+    return front==rear;
   }
 
   void frontEnqueue(int x){
@@ -30,11 +35,13 @@ class DEQueue{
     if(front==-1) {
       cout<<"Queue is Full";
       return;
-    else{
+     }
+      else{
       Q[front]=x;
       front--;
     }
   }
+
   int frontDequeue(){
     int x=-1;
     if(isEmpty())
@@ -43,7 +50,9 @@ class DEQueue{
         x=Q[front];
         front++;
       }
+      return x;
   }
+
   void rearEnqueue(int x){
     if(isFull())cout<<"Dequeu is overflow"<<endl;
     else{
@@ -51,6 +60,7 @@ class DEQueue{
       Q[rear]=x;
     }
   }
+
   int rearDequeue(){
     int x=-1;
     if(rear==-1)
@@ -64,9 +74,8 @@ class DEQueue{
   void Display(){
     for(int i=front+1;i<=rear;i++){
       cout<<Q[i]<<flush;
-      if(i<rear){
+      if(i<rear)
         cout<<" <- "<<flush;
-      }
     }
     cout<<endl;
   }
