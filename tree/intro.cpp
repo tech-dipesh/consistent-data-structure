@@ -34,9 +34,18 @@ class Queue{
     }
     return x;
   }
-}
+
+  void Display(){
+    int x=-1;
+    for(int i=front+1;i<=rear;i++){
+      cout<<Q[i]<<"-";
+    }
+    cout<<endl;
+  }
+};
 int main(){
     
-cout<<
+  Queue q;
+  
 return 0;
 }
