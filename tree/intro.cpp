@@ -1,23 +1,30 @@
 // Queue will be used for creating a binary tree:
+// as we don't know the size of the tree it will be easier to use the linked list rather than the array as it can have the flexiblity to allocate ad deallocate a memory
 #include <iostream>
 using namespace std;
+// linked list defination:
+class Node{
+  public:
+    Node *lchild;
+    intdata;
+    Node *rchild;
+};
+
+
 class Queue{
   private:
   int size;
   int front;
   int rear;
   Node *Q;
-  struct Node{
-    Node *lchild;
-    intdata;
-    Node *rchild;
-  }
+ 
   public:
-  Queue(int size=10):front(0), rear(0){
-    Q=new int[size];
+  Queue(int size):front(-1), rear(-1){
+    Q=new Node*[size];
   }
   ~Queue(){delete [] Q;}
-  void Enquque(int x){
+
+  void Enquque(Node *x){
       if((rear+1)%size==front)
          cout<<"Queue is full";
          else{
@@ -25,8 +32,9 @@ class Queue{
           rear=x;
          }
   }
-  int Dequeue(){
-    int x=-1;
+  Node *Dequeue(){
+    // int x=-1;
+    Node *x=nullptr;
     if(front==rear) cout<<"Queue is empty"<<endl;
     else{
       front=(front+1)%size;
