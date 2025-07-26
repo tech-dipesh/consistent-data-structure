@@ -21,6 +21,7 @@ class Tree{
 
 };
 int main(){
-    
+    Tree t;
+    t.PreOrder(10)
 return 0;
 }
