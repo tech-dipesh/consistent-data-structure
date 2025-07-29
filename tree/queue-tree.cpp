@@ -6,7 +6,7 @@ class Node{
   public:
   Node *lchild;
   int data;
-  NOde *rchild;
+  Node *rchild;
 };
 
 
