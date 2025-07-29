@@ -1,9 +1,9 @@
 // Queue will be used for creating a binary tree:
-// as we don't know the size of the tree it will be easier to use the linked list rather than the array as it can have the flexiblity to allocate ad deallocate a memory
+// we will be importing a queue tree 
 #include <iostream>
 using namespace std;
 // linked list defination:
-class Node{
+class Tree{
   public:
     Node *lchild;
     intdata;
