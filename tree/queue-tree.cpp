@@ -23,16 +23,20 @@ class Queues{
     // Queues(int sz){(sz), Q(new int[q=>size]), front(-1), rear(-1);}
     // Queues(int sz): size(sz), front(-1), rear(-1){
       // Q=new int[size];
-    Queues(){
-      front=rear=-1;
-      size=10;
-      // Q=new int[size];
+    Queues(int sz=10): size(sz), front(-1), rear(-1) {
       Q=new Node*[size];
     }
     // Destructor value:
     // ~Queues(delete [] Q);
     ~Queues(){delete [] Q;}
 
+    bool isFull()const {
+        return rear==size-1;
+    }
+    
+    bool isEmpty()const{
+        return front==rear;
+    }
     // All element valus.
   //  void Enqueue(Queues *Q, int x){
    void Enqueue(Node *x){
@@ -41,40 +45,18 @@ class Queues{
     cout<<"Queues is full";
     return;
   }
-      // Q->rear++;
-      // rear++;
-      // Q->q[q->rear]=x;
-      rear++;
-      Q[rear]=x;
+    Q[rear++]=x;
    }
 // void Dequeue(Queues *q){
 Node  *Dequeue(){
-  // int x=-1;
-  Node *x=nullptr;
-  // if(q->front==q->rear)
-  if(isEmpty())
+  if(isEmpty()){
     cout<<"Queue is Empty";
-    // add both value.
-    else{
-      // q->front++;
-      x=Q[front+1];
-      front++;
-    }
-      // x=q->Q[q->front];
-        // x=Q[front];
-    
-    return x;
+    return nullptr;
+}
+    else
+      return Q[front++];
 }
 
-int isFull(){
-    // if(rear==size-1) cout<<"Queue is Full";
-    return rear==size-1;
-}
-
-int isEmpty()const{
-    // if(front==rear) cout<<"Queue is empty";
-    return front==rear;
-}
 
 // void Display(Queues *q, int size){
 void Display()const{
