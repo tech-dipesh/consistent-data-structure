@@ -9,6 +9,7 @@ class Tree{
       int data;
       Node *rchild;
   }
+  
   void Inorder(Node *p){
     if(p==nullptr) return nullptr;
     cout<<Inorder(p->data);
