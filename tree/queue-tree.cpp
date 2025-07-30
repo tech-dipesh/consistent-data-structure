@@ -67,7 +67,7 @@ void Display()const{
   // for(int i=0;i<size;i++)
   // first value will start from front+1 due to the, the first value will be after a the front value with two pointer apporach
   for(int i=front+1;i<=rear;i++)
-    cout<<Q[i]<<" ";
+    cout<<Q[i]->data<<" ";
     cout<<endl;
 }
   

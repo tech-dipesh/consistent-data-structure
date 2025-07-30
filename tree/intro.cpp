@@ -7,7 +7,7 @@ using namespace std;
 // linked list defination:
 class Tree{
   public:
-   Node *root;
+   Node *root=new Node();
    Tree(){root=nullptr;}
    void createTree();
    void Preorder(Node *p);
@@ -77,8 +77,8 @@ void Tree::Inorder(Node *p){
 // Postorder code function:
 void Tree::Postorder(Node *p){
   if(p){
-    Inorder(p->lchild);
-    Inorder(p->rchild);
+    Postorder(p->lchild);
+    Postorder(p->rchild);
     cout<<p->data;
   }
 }
@@ -115,9 +115,9 @@ int Tree::Height(Node *p){
 int main(){
     
   Tree t;
-  t.createTree()
+  t.createTree();
   cout<<"PreOrder:";
   // Function of the main root:
-  t.PreOrder(t.mainRoot());
+  t.Preorder(t.mainRoot());
 return 0;
 }
