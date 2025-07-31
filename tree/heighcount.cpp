@@ -8,7 +8,6 @@ class Tree{
       int data;
       Node *rchild;
         Node(int val):data(val), lchild(nullptr), rchild(nullptr){}
-
   };
   Node *root;
   public:
@@ -40,33 +39,39 @@ class Tree{
   void levelOrder(Node *p){
       queue<Node*>q;
       cout<<root->data<<" ";
-      q.push(&root)
+      // q.push(root);
+      q.push(root);
 
       while(!q.empty()){
         root=q.pop();
         if(root->lchild){
           cout<<root->lchild->data;
-          q.push(&root->rchild);
+          // q.push(root->rchild);
+          q.push(root->rchild);
         }
       }
   }
 
-  // thisi is the function to access private dat to main without exposing a data:
+
+  int Height(Node *p){
+    int l=0;
+    int r=0;
+    if(p==nullptr)return 0;
+    l=Height(p->lchild);
+    r=Height(p->rchild);
+    return l+r+1;
+  }
+  // thisi is the function to access private data to main without exposing a data:
   Node *getRoot(){return root;}
 };
-  
 int main(){
-  Tree t;
-  t.insert(7);
-  t.insert(10);
-  t.insert(19);
-  t.insert(12);
-  
-
-  cout<<endl<<"Level Order value is:";
-  t.LevelOrder();
-
-  return 0;
+  Tree.insert(10);
+  Tree.insert(30);
+  Tree.insert(40);
+  Tree.insert(50);
+  Tree.insert(70);
+  Tree.insert(90);
+  // Checking the height of the tree:
+  cout<<endl<<Tree.Height();
+return 0;
 }
-
-
