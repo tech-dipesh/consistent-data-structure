@@ -21,7 +21,8 @@ class Tree{
     q.push(root);
     while(!q.empty()){
       Node *first=q.front();
-      q.pop();
+      // q.pop();
+      q.front();
       if(first->lchild==nullptr){
         first->lchild=new Node(val);
         return;
@@ -43,7 +44,8 @@ class Tree{
       q.push(root);
 
       while(!q.empty()){
-        root=q.pop();
+        root=q.front();
+        q.pop();
         if(root->lchild){
           cout<<root->lchild->data;
           // q.push(root->rchild);
@@ -65,13 +67,14 @@ class Tree{
   Node *getRoot(){return root;}
 };
 int main(){
-  Tree.insert(10);
-  Tree.insert(30);
-  Tree.insert(40);
-  Tree.insert(50);
-  Tree.insert(70);
-  Tree.insert(90);
+  Tree t;
+  t.insert(10);
+  t.insert(30);
+  t.insert(40);
+  t.insert(50);
+  t.insert(70);
+  t.insert(90);
   // Checking the height of the tree:
-  cout<<endl<<Tree.Height();
+  cout<<endl<<t.Height(t.getRoot());
 return 0;
 }
