@@ -9,6 +9,8 @@ class Tree{
       Node *lchild;
       int data;
       Node *rchild;
+        Node(int val):data(val), lchild(nullptr), rchild(nullptr){}
+
   };
   Node *root;
   public:
@@ -24,12 +26,12 @@ class Tree{
       Node *first=q.front();
       q.pop();
       if(first->lchild==nullptr){
-        first->lchild=new Node();
+        first->lchild=new Node(val);
         return;
       }
       else q.push(first->lchild);
       if(first->rchild==nullptr){
-        first->rchild=new Node();
+        first->rchild=new Node(val);
         return;
       }
       else q.push(first->rchild);
@@ -39,29 +41,29 @@ class Tree{
 
 
   void Inorder(Node *p){
-    if(p==nullptr) return nullptr;
+    if(p==nullptr) return;
     Inorder(p->lchild);
-    cout<<Inorder(p->data)<<" ";
+    cout<<p->data<<" ";
     Inorder(p->rchild);
   }
   void Preorder(Node *p){
-      if(p==nullptr) return nullptr;
-      cout<<Preorder(p->data)<<" ";
+      if(p==nullptr) return;
+      cout<<p->data<<" ";
       Preorder(p->lchild);
     Preorder(p->rchild);
   }
   void Postorder(Node *p){
-    if(p==nullptr) return nullptr;
+    if(p==nullptr) return;
     Postorder(p->lchild);
     Postorder(p->rchild);
-    cout<<Postorder(p->data)<<" ";
+    cout<<p->data<<" ";
   }
 
   void LevelOrder(){
-  if(root=nullptr)return;
+  if(root==nullptr)return;
     //  the queue Node:
     queue<Node*>q;
-    q.push();
+    q.push(root);
 
     while(!q.empty()){
       Node *first=q.front();
@@ -74,26 +76,29 @@ class Tree{
         q.push(first->rchild);
     }
   }
+  // thisi is the function to access private dat to main without exposing a data:
+  Node *getRoot(){return root;}
+  
 };
 
 int main(){
   Tree t;
-  t.insert(7)
-  t.insert(10)
-  t.insert(19)
-  t.insert(12)
+  t.insert(7);
+  t.insert(10);
+  t.insert(19);
+  t.insert(12);
 
-  cou<<endl<<"Inorder value is:";
-  t.Inorder();
+  cout<<endl<<"Inorder value is:";
+  t.Inorder(t.getRoot());
   
 
-  cou<<endl<<"PreOrder value is:";
-  t.Preorder();
+  cout<<endl<<"PreOrder value is:";
+  t.Preorder(t.getRoot());
 
-  cou<<endl<<"Postorder value is:";
-  t.Postorder();
+  cout<<endl<<"Postorder value is:";
+  t.Postorder(t.getRoot());
 
-  cou<<endl<<"Level Order value is:";
+  cout<<endl<<"Level Order value is:";
   t.LevelOrder();
   return 0;
 }
