@@ -1,12 +1,12 @@
 #include <iostream>
 using namespace std;
 class BinaryTree{
-  private:
+  public:
   struct Node{
       Node *lchild;
       int data;
       Node *rchild;
-  }
+  };
   public:
   Node *root=nullptr;
   void Insert(int val){
@@ -14,24 +14,25 @@ class BinaryTree{
       Node *r, *p;
       if(root==nullptr){
         p=new Node();
-        p->data=key;
+        p->data=val;
         p->lchild=p->rchild=nullptr;
+        root=p;
         return;
       }
       while(t){
         r=t;
         if(val<t->data)
           t=t->lchild;
-          else if(key>t->data)
+          else if(val>t->data)
             t=t->rchild;
-            else return;
+            else
+             return;
       }
       p=new Node();
       p->data=val;
       p->lchild=p->rchild=nullptr;
-
-      if(key<r->data) r->lchild=p;
-      else r->rchild=;
+      if(val<r->data) r->lchild=p;
+      else r->rchild=p;
   }
 
   void Inorder(Node *p){
@@ -53,10 +54,31 @@ class BinaryTree{
     cout<<p->data;
   }
 
+  Node *search(int val){
+    Node *t=root;
+    while(t){
+      if(t->data==val)
+      return t;
+      else if(val>t->data)
+        t=t->lchild;
+        else t=t->rchild;
+    }
+    return nullptr;
+  }
   
+  ~BinaryTree(){
+    Node *p=root;
+    while(root){
+      delete root;
+      root=root->lchild;
+      root=root->rchild;
+    }
+  }
     // thisi is the function to access private dat to main without exposing a data:
   Node *getRoot(){return root;}
 };
+
+
 int main(){
   BinaryTree b;
   b.Insert(10);
@@ -65,5 +87,11 @@ int main(){
   b.Insert(40);
 
   b.Inorder(b.getRoot());
+  cout<<endl;
+
+ Node *temp=b.search(30);
+  if(temp)
+    cout<<"Element is found"<<temp->data<<endl;
+  else cout<<"Element is not found";
 return 0;
 }
