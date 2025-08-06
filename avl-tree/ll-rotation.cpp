@@ -45,8 +45,9 @@ class LLR{
   }
   
   Node *RightInsert(Node *p, int key){
+    Node *t=nullptr;
     if(p==nullptr){
-     Node *t=new Node();
+     t=new Node();
       t->data=key;
       t->height=1;
       t->lchild=t->rchild=nullptr;
@@ -57,6 +58,7 @@ class LLR{
      p->lchild=RightInsert(p->lchild, key);
     else if(key>p->data)
       p->rchild=RightInsert(p->rchild, key);
+      
     // p->height=1;
     p->height=NodeHeight(p);
 
