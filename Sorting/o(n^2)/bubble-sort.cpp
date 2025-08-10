@@ -31,8 +31,9 @@ class BinaryTree{
 };
 int main(){
  BinaryTree b;
-   int A[]={5, 19, 12, 9, 14};
-   int n=5;
+   // int A[]={5, 19, 12, 9, 14};
+    int A[]={31, 82, 29, 24, 11, 42, 61, 92, 6, 52, 98, 68, 9, 13, 4, 15, 56, 64, 21, 35, 46, 74, 85, 37, 88};
+   int n=25;
    b.isSorted(A, n);
       // b.Sorting(A, n); 
           if (A[0] > A[1] || A[n-2] > A[n-1]) b.Sorting(A, n); // Quick check before full sort
