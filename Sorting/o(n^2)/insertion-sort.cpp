@@ -14,6 +14,11 @@ class Insertion{
       S[j+1]=key;
       }
   }
+  
+  void Display(int S[], int n){
+      for(int i=0;i<n;i++)
+        cout<<S[i]<<" ";
+  }
 };
 int main(){
     Insertion i;
@@ -22,7 +27,6 @@ int main(){
     // i.Sorting(S, n);
     i.Sorting(S, n);
 // printing the value:
-    for(int i=0;i<n;i++)
-      cout<<S[i]<<" ";
+    i.Display(S, n);
 return 0;
 }
