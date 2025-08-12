@@ -52,7 +52,7 @@ return j;
 int main(){
   QuickSort q; 
     int S[]={31, 82, 29, 24, 11, 42, 61, 92, 6, 52, 98, 68, 9, 13, 4, 15, 56, 64, 21, 35, 46, 74, 85, 37, 88};
-    int size=24;
+    int size=25;
     int low=0, high=size;
     cout<<endl<<"before partition:";
     q.Display(S, size);
