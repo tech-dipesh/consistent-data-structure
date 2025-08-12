@@ -32,7 +32,22 @@ swap(Arr[low], Arr[high]);
 return j;
    }
 
+  //  Recusrive approch:
+  void quickVoidSort(int A[], int low, int high){
+    int j;
+    if(low<high){
+      j=Parition(A, low, high);
+      QuickSort(A, low, j);
+      QuickSort(A, j+1, high);
+    }
+  }
 
+  // printing the sorted element:
+  void Display(int A[], int n){
+    for(int i=0;i<n;i++){
+        cout<<A[i]<<" ";
+    }
+  }
 };
 int main(){
   QuickSort q; 
