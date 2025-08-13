@@ -19,7 +19,7 @@ class QuickSort{
 
 
   // abdul bari approach:
-   int Parition(int Arr[], int low, int high){
+ int Parition(int Arr[], int low, int high){
 int pivot=Arr[low];
 // int i=Arr[low], j=Arr[high];
 int i=low, j=high;
@@ -31,7 +31,8 @@ do{
 } while(i<j);
 swap(Arr[low], Arr[j]);
 return j;
-   }
+  }
+
 
   //  Recusrive approch:
   void quickVoidSort(int A[], int low, int high){
@@ -41,6 +42,7 @@ return j;
       quickVoidSort(A, j+1, high);
     }
   }
+  
 
   // printing the sorted element:
   void Display(int A[], int n){

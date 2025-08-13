@@ -2,6 +2,7 @@
 using namespace std;
 class Merging{
   public:
+  void Mergin(int )
   void MergeSort(int A[], int n){
 
   }
@@ -15,9 +16,12 @@ class Merging{
 int main(){
  Merging m;
  int S[]={31, 82, 29, 24, 11, 42, 61, 92, 6, 52, 98, 68, 9, 13, 4, 15, 56, 64, 21, 35, 46, 74, 85, 37, 88};
+ int A[]={20, 30, 40, 50};
+ int A[]={20, 30, 40, 50};
  int n=25;
 //  before printign the value:
 cout<<"Displaying before element";
+
  m.Display(S, n);
 
  m.MergeSort(S, n);
